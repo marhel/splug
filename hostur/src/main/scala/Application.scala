@@ -7,9 +7,8 @@ object HosturApplication {
 		println("HosturApplication")
 		val classpath = args.map(new File(_))
 		val finder = ClassFinder(classpath)
-		// val finder = ClassFinder()
-		val classes = finder.getClasses // classes is an Iterator[ClassInfo]
-		val classMap = ClassFinder.classInfoMap(classes.toIterator) // runs iterator out, once
+		val classes = finder.getClasses // classes is an Stream[ClassInfo]
+		val classMap = ClassFinder.classInfoMap(classes.toIterator) // runs stream out, once
 		val plugins = ClassFinder.concreteSubclasses("com.factor10.plugins.FormattingPlugin", classMap)
 
 		val data = Map("some" -> "field")
