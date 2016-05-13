@@ -21,7 +21,7 @@ The only interesting parts of the program is [Application.scala](hostur/src/main
     val classpath = args.map(new File(_))
 		val finder = ClassFinder(classpath)
 		val classes = finder.getClasses // classes is an Stream[ClassInfo]
-		val classMap = ClassFinder.classInfoMap(classes.toIterator) // runs iterator out, once
+		val classMap = ClassFinder.classInfoMap(classes.toIterator) // runs stream out, once
 		val plugins = ClassFinder.concreteSubclasses("com.factor10.plugins.FormattingPlugin", classMap)
 
 		val data = Map("some" -> "field")
